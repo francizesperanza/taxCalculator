@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/archivo_medium_italic</item>
+        <item>@font/belgrano</item>
+        <item>@font/syne_mono</item>
+        <item>@font/work_sans_medium</item>
+        <item>@font/xanh_mono_italic</item>
+    </array>
+</resources>
