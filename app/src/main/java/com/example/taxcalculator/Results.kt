@@ -50,75 +50,55 @@ class Results : AppCompatActivity() {
         }
     }
     fun computeSSSContribution (monthlyIncome: Double): Double {
-        var bracketNo: Int
-
-        if (monthlyIncome < 1000.0)
+        val bracketNo: Int = if (monthlyIncome < 1000.0)
             return 0.0
-        else if (monthlyIncome >= 1000.0 && monthlyIncome <= 3249.99)
-            bracketNo = 0
-        else if (monthlyIncome >= 3250.0 && monthlyIncome <= 24749.99)
-            bracketNo = Math.floorDiv((monthlyIncome - 3250.0).toInt(), 500) + 1
+        else if (monthlyIncome in 1000.0..3249.99)
+            0
+        else if (monthlyIncome in 3250.0..24749.99)
+            Math.floorDiv((monthlyIncome - 3250.0).toInt(), 500) + 1
         else
-            bracketNo = 44
+            44
 
-        var contribution = 135 + (22.5 * bracketNo)
-
-        return contribution
+        return 135 + (22.5 * bracketNo)
     }
 
     fun computePhilHealthContribution (monthlyIncome: Double): Double {
-        if (monthlyIncome < 10000)
-            return 225.0
-        else if (monthlyIncome >= 10000 && monthlyIncome < 90000)
-            return monthlyIncome * .045 / 2
+        return if (monthlyIncome < 10000)
+            200.0
+        else if (monthlyIncome in 10000.0..79999.99)
+            monthlyIncome * .04 / 2
         else
-            return 4050.0
+            3200.0
     }
 
     fun computePagIbigContribution (monthlyIncome: Double): Double {
-        if (monthlyIncome < 5000)
+        return if (monthlyIncome < 5000)
             if (monthlyIncome <= 1500)
-                return monthlyIncome * .01
+                monthlyIncome * .01
             else
-                return monthlyIncome * .02
+                monthlyIncome * .02
         else
-            return 100.0
+            100.0
     }
 
     fun computeIncomeTax (taxableIncome: Double): Double {
-        var baseTax: Double
-        var withholdingTax: Double
+        val baseTax: Double
+        val withholdingTax: Double
 
-        // when statements are exclusive to Kotlin
-        // - it is a more flexible switch statement
-        // - it makes writing multiple if-else statements easier
-
-        when {
+        when{
             taxableIncome < 0.0 ||
-                    taxableIncome in 0.0..20832.0 -> {
-                baseTax = 0.0
-                withholdingTax = 0.0
-            }
-            taxableIncome in 20833.0..33332.0 -> {
-                baseTax = 0.0
-                withholdingTax = (taxableIncome - 20833.0) * .2
-            }
-            taxableIncome in 33333.0..66666.0 -> {
-                baseTax = 2500.0
-                withholdingTax = (taxableIncome - 33333.0) * .25
-            }
-            taxableIncome in 66667.0..166666.0 -> {
-                baseTax = 10833.33
-                withholdingTax = (taxableIncome - 66667.0) * .30
-            }
-            taxableIncome in 166667.0..666666.0 -> {
-                baseTax = 40833.33
-                withholdingTax = (taxableIncome - 166667.0) * .32
-            }
-            else -> {
-                baseTax = 200833.33
-                withholdingTax = (taxableIncome - 666667.0) * .35
-            }
+                    taxableIncome in 0.0..20832.0 -> {baseTax = 0.0
+                withholdingTax = 0.0}
+            taxableIncome in 20833.0..33332.0 -> {baseTax = 0.0
+                withholdingTax = (taxableIncome-20833.0) * .2}
+            taxableIncome in 33333.0..66666.0 -> {baseTax = 2500.0
+                withholdingTax = (taxableIncome-33333.0) * .25}
+            taxableIncome in 66667.0..166666.0 -> {baseTax = 10833.33
+                withholdingTax = (taxableIncome-66667.0) * .30}
+            taxableIncome in 166667.0..666666.0 -> {baseTax = 40833.33
+                withholdingTax = (taxableIncome-166667.0) * .32}
+            else -> {baseTax = 200833.33
+                withholdingTax = (taxableIncome-666667.0) * .35}
         }
         return baseTax + withholdingTax
     }
