@@ -47,6 +47,7 @@ class Results : AppCompatActivity() {
 
         btnBack.setOnClickListener{
             finish()
+            this.overridePendingTransition(0,0)
         }
     }
     fun computeSSSContribution (monthlyIncome: Double): Double {

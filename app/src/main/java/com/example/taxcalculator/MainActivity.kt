@@ -3,14 +3,7 @@ package com.example.taxcalculator
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
 import android.view.LayoutInflater
-import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.PopupMenu
-import android.widget.PopupWindow
-import android.widget.TextView
 import com.example.taxcalculator.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +15,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.btnStart.setOnClickListener{
             val intent = Intent(applicationContext,CalcPage::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnRates.setOnClickListener{
+            val intent = Intent(applicationContext,Rates::class.java)
             startActivity(intent)
         }
     }
