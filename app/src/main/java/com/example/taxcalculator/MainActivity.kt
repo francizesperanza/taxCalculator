@@ -20,10 +20,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(LayoutInflater.from(this))
         setContentView(binding.root)
-        binding.btnCalc.setOnClickListener{
-            val intent = Intent(applicationContext,Results::class.java)
-            var monthlyIncome = binding.etMonthlyIncome.text.toString()
-            intent.putExtra("input_key",monthlyIncome)
+        binding.btnStart.setOnClickListener{
+            val intent = Intent(applicationContext,CalcPage::class.java)
             startActivity(intent)
         }
     }

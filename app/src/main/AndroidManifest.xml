@@ -12,6 +12,9 @@
         android:theme="@style/Theme.TaxCalculator"
         tools:targetApi="31">
         <activity
+            android:name=".CalcPage"
+            android:exported="false" />
+        <activity
             android:name=".Results"
             android:exported="false" />
         <activity

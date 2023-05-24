@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EAEFD0"
+    android:isScrollContainer="true"
+    tools:context=".CalcPage"
+    tools:ignore="MissingDefaultResource">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="190dp"
+        android:layout_height="245dp"
+        android:rotation="25"
+        android:rotationY="-180"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/nwjsbunny" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="341dp"
+        android:layout_height="248dp"
+        android:layout_marginTop="240dp"
+        android:background="@drawable/whitebg"
+        android:scaleX="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/screen_background_light" />
+
+    <EditText
+        android:id="@+id/etMonthlyIncome"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/textfield"
+        android:ems="10"
+        android:hint="Ex: 30000.00"
+        android:inputType="numberDecimal"
+        android:singleLine="true"
+        android:textAlignment="center"
+        android:textColor="#00704A"
+        android:textColorHint="#6000704A"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:typeface="monospace"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="272dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/editorial"
+        android:text="Assuming you are an employed Filipino, enter your monthly income:"
+        android:textAlignment="center"
+        android:textColor="#0B7B55"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+    <Button
+        android:id="@+id/btnCalc"
+        android:layout_width="130dp"
+        android:layout_height="49dp"
+        android:backgroundTint="#00704A"
+        android:fontFamily="@font/editorial"
+        android:shadowColor="#00FF0000"
+        android:singleLine="false"
+        android:text="Calculate"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/etMonthlyIncome"
+        app:rippleColor="#E9EECF"
+        app:strokeColor="#00704A"
+        app:strokeWidth="1dp" />
+
+    <Button
+        android:id="@+id/btnCalculate2"
+        android:layout_width="298dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="@font/editorial"
+        android:shadowColor="#00FF0000"
+        android:singleLine="false"
+        android:text="Back To Main Menu"
+        android:textAllCaps="false"
+        android:textColor="#00704A"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:rippleColor="#E9EECF"
+        app:strokeColor="#00704A"
+        app:strokeWidth="1dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
