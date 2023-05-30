@@ -6,11 +6,16 @@ import android.text.method.LinkMovementMethod
 import android.widget.Button
 import android.widget.TextView
 
+/**
+ * This class allows users to check the referenced rates for the computations
+ */
 class Rates : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         overridePendingTransition(0, 0)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.rates)
+
+        // allows the links to function
         val SSSLink = findViewById<TextView>(R.id.linkSSS);
         if (SSSLink != null) {
             SSSLink.setMovementMethod(LinkMovementMethod.getInstance());

@@ -9,19 +9,23 @@ import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.*
 
+/**
+ * This class computes for the contribution fees and income tax, and displays them on the layout
+ */
 class Results : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         overridePendingTransition(0,0)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_results)
 
+        // format the results
         val formatter: NumberFormat = DecimalFormat("₱ #,##0.00")
         formatter.roundingMode = RoundingMode.CEILING
 
+        // receive input from Calculate page
         val intent = intent
         var str = intent.getStringExtra("input_key")
         var monthlyIncome = str.toString().toDouble()
-
         var SSSContribution: Double = computeSSSContribution(monthlyIncome)
         var philHealthContribution: Double = computePhilHealthContribution(monthlyIncome)
         var pagIbigContribution: Double = computePagIbigContribution(monthlyIncome)
@@ -32,6 +36,7 @@ class Results : AppCompatActivity() {
         var totalDeductions: Double = incomeTax + contributions
         var netPayAfterDeductions: Double = monthlyIncome - totalDeductions
 
+        // change the texts into computed values
         findViewById<TextView>(R.id.monthlyInc).setText(formatter.format(monthlyIncome).toString())
         findViewById<TextView>(R.id.SSS).setText(formatter.format(SSSContribution).toString())
         findViewById<TextView>(R.id.PhilHealth).setText(formatter.format(philHealthContribution).toString())
@@ -50,6 +55,12 @@ class Results : AppCompatActivity() {
             this.overridePendingTransition(0,0)
         }
     }
+
+    /**
+     * This function computes for the SSS Contribution fee given the monthly income
+     * @param monthlyIncome - The monthly income of an employee
+     * @return the SSS contribution fee of an employee
+     */
     fun computeSSSContribution (monthlyIncome: Double): Double {
         val bracketNo: Int = if (monthlyIncome < 1000.0)
             return 0.0
@@ -63,6 +74,11 @@ class Results : AppCompatActivity() {
         return 135 + (22.5 * bracketNo)
     }
 
+    /**
+     * This function computes for the PhilHealth Contribution fee given the monthly income
+     * @param monthlyIncome - The monthly income of an employee
+     * @return the PhilHealth contribution fee of an employee
+     */
     fun computePhilHealthContribution (monthlyIncome: Double): Double {
         return if (monthlyIncome < 10000)
             200.0
@@ -72,6 +88,11 @@ class Results : AppCompatActivity() {
             3200.0
     }
 
+    /**
+     * This function computes for the Pag-IBIG Contribution fee given the monthly income
+     * @param monthlyIncome - The monthly income of an employee
+     * @return the Pag-IBIG contribution fee of an employee
+     */
     fun computePagIbigContribution (monthlyIncome: Double): Double {
         return if (monthlyIncome < 5000)
             if (monthlyIncome <= 1500)
@@ -82,6 +103,11 @@ class Results : AppCompatActivity() {
             100.0
     }
 
+    /**
+     * This function computes for the income tax given the taxable income of an employee
+     * @param taxableIncome - The taxable income of an employee
+     * @return the income tax of an employee
+     */
     fun computeIncomeTax (taxableIncome: Double): Double {
         val baseTax: Double
         val withholdingTax: Double
