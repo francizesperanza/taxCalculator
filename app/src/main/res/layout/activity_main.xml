@@ -29,29 +29,10 @@
         app:strokeWidth="1dp" />
 
     <Button
-        android:id="@+id/btnAbout"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#FFFFFF"
-        android:fontFamily="@font/editorial"
-        android:shadowColor="#00FF0000"
-        android:singleLine="false"
-        android:text="About"
-        android:textAllCaps="false"
-        android:textColor="#00704A"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRates"
-        app:rippleColor="#00704A"
-        app:strokeColor="#00704A"
-        app:strokeWidth="1dp" />
-
-    <Button
         android:id="@+id/btnExit"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#FFFFFF"
         android:fontFamily="@font/editorial"
         android:shadowColor="#00FF0000"
@@ -63,7 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAbout"
+        app:layout_constraintTop_toBottomOf="@+id/btnRates"
         app:rippleColor="#00704A"
         app:strokeColor="#00704A"
         app:strokeWidth="1dp" />

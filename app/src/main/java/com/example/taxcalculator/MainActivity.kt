@@ -22,5 +22,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(applicationContext,Rates::class.java)
             startActivity(intent)
         }
+
+        binding.btnExit.setOnClickListener{
+            finish()
+            System.exit(0)
+        }
     }
 }
